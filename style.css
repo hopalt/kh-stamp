@@ -45,6 +45,8 @@ body {
 }
 a { color: var(--stamp); }
 img { max-width: 100%; height: auto; display: block; }
+/* Android(1080×2400)·iPhone(1206×2622) 화면 비율 차이를 맞춘다 */
+.phone img { width: 100%; aspect-ratio: 552 / 1200; object-fit: cover; object-position: top; }
 .serif { font-family: "Gowun Batang", serif; font-weight: 700; }
 .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
@@ -110,10 +112,11 @@ section .sub { color: var(--ink-soft); margin: 0 0 28px; }
 .feature h3 { margin: 0 0 6px; font-size: 1.1rem; }
 .feature p { margin: 0; color: var(--ink-soft); font-size: .97rem; }
 
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px; max-width: 860px; margin: 0 auto; }
 .gallery figure { margin: 0; }
 .gallery .phone { width: 100%; border-width: 5px; border-radius: 24px; }
-.gallery figcaption { text-align: center; margin-top: 10px; color: var(--ink-soft); font-size: .95rem; }
+.gallery figcaption { text-align: center; margin-top: 10px; color: var(--ink); font-size: .98rem; font-weight: 600; }
+.gallery figcaption span { display: block; font-weight: 400; font-size: .82rem; color: var(--ink-soft); }
 
 .dashed { border: 0; border-top: 1.5px dashed var(--line); margin: 0; }
 
