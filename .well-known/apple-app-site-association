@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["XLV8PTU6ZF.com.hopalt.heritagestamp"],
+        "components": [{ "/": "/sync/*", "comment": "가까운 폰과 기록 맞추기 QR" }]
+      }
+    ]
+  }
+}

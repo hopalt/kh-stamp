@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기록 맞추기 — 국가유산 방문 도우미</title>
+<meta name="description" content="가족 폰과 도장 기록을 맞추는 QR 이에요. 국가유산 방문 도우미 앱에서 열려요.">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f6f0e3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171a24" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand serif" href="../"><img src="../img/favicon.png" alt="">국가유산 방문 도우미</a>
+    <nav><a href="../">홈</a></nav>
+  </div>
+</header>
+
+<!--
+  가까운 폰과 기록 맞추기 QR (ADR 0005). QR 주소는 https://khstamp.hopalt.com/sync/#KHSYNC1.… 이다.
+  앱이 깔려 있으면 유니버설 링크(.well-known/apple-app-site-association)·앱 링크(.well-known/assetlinks.json)로
+  이 페이지 대신 앱이 열린다. 이 페이지가 보이면 앱이 없거나 링크가 앱으로 넘어가지 않은 경우다.
+  # 뒤의 접속 정보는 서버로 보내지지 않고, 이 페이지도 읽지 않는다.
+-->
+<main class="doc">
+  <p class="eyebrow">가까운 폰과 기록 맞추기</p>
+  <h1 class="serif">이 QR 은 앱에서 열려요</h1>
+  <p>가족 폰의 도장 기록을 이 폰으로 받으려면 <strong>국가유산 방문 도우미</strong> 앱이 필요해요.</p>
+
+  <div class="badges" id="stores">
+    <a class="badge" id="play" href="https://play.google.com/store/apps/details?id=com.hopalt.heritagestamp">Google Play 에서 받기</a>
+    <span class="badge soon" id="appstore">App Store 준비 중</span>
+  </div>
+
+  <div class="summary">
+    <strong>앱을 깐 뒤에는</strong>
+    <ul>
+      <li>보내는 폰 화면의 QR 을 폰 카메라로 다시 찍거나,</li>
+      <li>앱의 <strong>설정 › 백업·복원 › QR 찍어서 받기</strong>로 찍어 주세요.</li>
+      <li>두 폰이 같은 Wi‑Fi 에 있어야 해요. 밖에서는 한 폰의 핫스팟을 켜고 다른 폰을 거기에 연결하면 돼요.</li>
+    </ul>
+  </div>
+  <p class="meta">QR 은 한 번만 쓰고 10분이 지나면 닫혀요. 기록은 서버를 거치지 않고 두 폰끼리 바로 주고받아요.</p>
+</main>
+
+<script>
+  // 스토어에 올라가면 주소를 채운다. 비어 있으면 이 페이지에 머문다.
+  var STORE = {
+    android: 'https://play.google.com/store/apps/details?id=com.hopalt.heritagestamp',
+    ios: '' // 예: https://apps.apple.com/kr/app/id0000000000
+  };
+  (function () {
+    var ua = navigator.userAgent || '';
+    var isAndroid = /Android/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (STORE.ios) {
+      var a = document.getElementById('appstore');
+      var link = document.createElement('a');
+      link.className = 'badge'; link.href = STORE.ios; link.textContent = 'App Store 에서 받기';
+      a.replaceWith(link);
+    }
+    var target = isAndroid ? STORE.android : isIOS ? STORE.ios : '';
+    // 주소의 # 뒤(접속 정보)는 스토어로 넘기지 않는다
+    if (target) location.replace(target);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hopalt.heritagestamp",
+      "sha256_cert_fingerprints": [
+        "D6:17:50:BB:64:72:25:FE:9F:FF:AE:6A:11:FE:8C:F5:24:B6:C4:DB:BA:A6:1A:79:43:6F:E9:EE:19:67:D6:D5",
+        "66:04:25:28:08:33:13:5D:B5:23:DD:50:C5:83:56:A4:63:1C:B8:28:E0:96:12:E6:DE:A0:01:BF:F0:2D:00:D9"
+      ]
+    }
+  }
+]

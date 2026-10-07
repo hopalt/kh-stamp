@@ -76,6 +76,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600; font-size: .98rem; text-decoration: none;
 }
 .badge.soon { border-style: dashed; border-color: var(--line); color: var(--ink-soft); }
+a.badge:hover, a.badge:focus-visible { background: var(--ink); color: var(--paper); }
 .badge svg { width: 18px; height: 18px; fill: currentColor; }
 .note { font-size: .9rem; color: var(--ink-soft); margin-top: 14px; }
 
