@@ -39,7 +39,7 @@
 
   <div class="badges" id="stores">
     <a class="badge" id="play" href="https://play.google.com/store/apps/details?id=com.hopalt.heritagestamp">Google Play 에서 받기</a>
-    <span class="badge soon" id="appstore">App Store 준비 중</span>
+    <a class="badge" id="appstore" href="https://apps.apple.com/kr/app/id6820375376">App Store 에서 받기</a>
   </div>
 
   <div class="summary">
@@ -54,7 +54,7 @@
 </main>
 
 <script>
-  // 스토어에 올라가면 주소를 채운다. 비어 있으면 이 페이지에 머문다.
+  // 폰 종류에 맞는 스토어로 바로 넘긴다. 비어 있으면 이 페이지에 머문다.
   var STORE = {
     android: 'https://play.google.com/store/apps/details?id=com.hopalt.heritagestamp',
     ios: 'https://apps.apple.com/kr/app/id6820375376'
@@ -63,12 +63,6 @@
     var ua = navigator.userAgent || '';
     var isAndroid = /Android/i.test(ua);
     var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    if (STORE.ios) {
-      var a = document.getElementById('appstore');
-      var link = document.createElement('a');
-      link.className = 'badge'; link.href = STORE.ios; link.textContent = 'App Store 에서 받기';
-      a.replaceWith(link);
-    }
     var target = isAndroid ? STORE.android : isIOS ? STORE.ios : '';
     // 주소의 # 뒤(접속 정보)는 스토어로 넘기지 않는다
     if (target) location.replace(target);
